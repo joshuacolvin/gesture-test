@@ -12,8 +12,6 @@ import {
   SimpleChanges,
   OnChanges,
 } from '@angular/core';
-import { PeakIconRegistry } from '@ascentgl/peak-icons';
-import { peakIconCheckCircle } from '@ascentgl/peak-icons/icons';
 import { ProgressStep } from './progress-step.types';
 
 @Component({
@@ -25,13 +23,7 @@ import { ProgressStep } from './progress-step.types';
 export class PeakProgressStepperComponent
   implements AfterViewInit, OnChanges, OnInit
 {
-  constructor(
-    private renderer: Renderer2,
-    private registry: PeakIconRegistry,
-    private window: Window
-  ) {
-    this.registry.register(peakIconCheckCircle);
-  }
+  constructor(private renderer: Renderer2, private window: Window) {}
 
   /** @ignore */
   @ViewChild('stepper') stepper!: ElementRef;

@@ -11,13 +11,20 @@
     #stepElements
     class="progress-stepper-step"
     [draggable]="false"
-    *ngFor="let step of steps; let index = index; let first = first; let last = last"
+    *ngFor="
+      let step of steps;
+      let index = index;
+      let first = first;
+      let last = last
+    "
   >
     <div class="progress-bar" [class.first]="first" [class.last]="last">
       <div
         class="progress-bar-highlight"
         [class.completed]="step.completed"
-        [class.roundedLeft]="first || (steps[index - 1].completed === false && step.completed)"
+        [class.roundedLeft]="
+          first || (steps[index - 1].completed === false && step.completed)
+        "
         [class.roundedRight]="
           last ||
           (steps[index + 1]?.completed === false && step.completed) ||
@@ -29,9 +36,7 @@
       <div class="progress-step-info-container">
         <div class="title">
           <div class="title-text">{{ step.title }}</div>
-          <div class="title-completed-icon" *ngIf="step.completed">
-            <peak-icon name="check_circle" size="xxs" color="#32b18d"></peak-icon>
-          </div>
+          <div class="title-completed-icon" *ngIf="step.completed"></div>
         </div>
         <div *ngIf="step?.date" class="date">{{ step?.date }}</div>
       </div>
