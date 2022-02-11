@@ -1,0 +1,104 @@
+// @import '../../../assets/sass/peak-ui/abstracts/functions';
+// @import '../../../assets/sass/peak-ui/abstracts/variables';
+
+:host {
+  box-sizing: border-box;
+}
+
+.progress-stepper {
+  display: grid;
+  max-width: 100%;
+  user-select: none;
+  transition: margin 300ms ease-in-out;
+}
+
+.progress-stepper-step {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.progress-step-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.progress-step-info.first {
+  align-items: flex-start;
+}
+
+.progress-step-info.last {
+  align-items: flex-end;
+}
+
+.progress-stepper-step:last-of-type .title,
+.progress-stepper-step:last-of-type .date {
+  text-align: right;
+}
+
+.title {
+  color: grey;
+  font-size: 13px;
+  font-weight: font-weight(medium);
+  display: flex;
+  height: 24px;
+  align-items: center;
+}
+
+.title-text {
+  margin-right: 6px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.title-completed-icon {
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  color: grey;
+  font-size: 12px;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: grey;
+  height: 12px;
+}
+
+.progress-bar.first,
+.progress-bar.first .progress-bar-highlight {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.progress-bar.last,
+.progress-bar.last .progress-bar-highlight {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.progress-bar-highlight {
+  height: 12px;
+  width: 100%;
+}
+
+.progress-bar-highlight.completed {
+  background-color: green;
+}
+
+.progress-bar-highlight.roundedLeft {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.progress-bar-highlight.roundedRight {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}

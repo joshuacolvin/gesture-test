@@ -1,0 +1,83 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import * as stories from './progress-stepper.component.stories';
+
+<Meta title="COMPONENTS/Steppers/Progress Stepper" />
+
+# Progress Stepper
+
+The `peak-progress-stepper` component can be used to display state over time. It is meant to be a replacement for the [`peak-timeline-stepper`](/story/components-steppers--primary) component.
+
+<Canvas>
+  <Story name="Progress Stepper" story={stories.Primary}></Story>
+</Canvas>
+
+## Usage
+
+Import the `PeakProgressStepperModule` from `@ascentgl/peak-ui`.
+
+```ts
+import { PeakProgressStepperModule } from '@ascentgl/peak-ui';
+
+@NgModule({
+  imports: [PeakProgressStepperModule],
+})
+export class SomeModule {}
+```
+
+Next, in your component, add an array of steps with the type `ProgressStep[]`.
+
+```ts
+export class SomeComponent {
+  steps: ProgressStep[] = [
+	  {
+      title: 'ATD Vesel Port',
+      date: '11/12/2020',
+      completed: false,
+    },
+    {
+      title: 'Entry Date',
+      date: '11/12/2020',
+      completed: true,
+    },
+    {
+      title: 'Clearance Date',
+      date: '11/12/2020',
+      completed: false,
+    },
+    {
+      title: 'ETA Last Vesel',
+      date: '11/12/2020',
+      completed: true,
+    },
+    {
+      title: 'Delivered',
+      completed: false,
+    },
+  ]
+
+  isMobile = false;
+```
+
+Finally, use `peak-progress-stepper` in your template:
+
+```html
+<peak-progress-stepper [steps]="steps" [isMobile]="isMobile"></peak-progress-stepper>
+```
+
+<br />
+
+## Types
+
+`ProgressStep`
+
+```ts
+export type ProgressStep = {
+  title: string;
+  date?: string;
+  completed?: boolean;
+};
+```
+
+## API
+
+<ArgsTable story="Progress Stepper" />
